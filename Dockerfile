@@ -1,3 +1,3 @@
-FROM docker.elastic.co/logstash/logstash:5.6.3
-RUN logstash-plugin install logstash-input-s3
+FROM docker.elastic.co/logstash/logstash:6.0.0
+RUN logstash-plugin install logstash-input-s3 logstash-input-lumberjack
 

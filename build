@@ -1,4 +1,9 @@
 #!/bin/bash
 
-docker build -t discourse/logstash-aws .
-docker push discourse/logstash-aws
+if [ -z "$1" ]; then
+	echo "Give me a tag to build, please." >&2
+	exit 1
+fi
+
+docker build -t discourse/logstash-aws:$1 .
+docker push discourse/logstash-aws:$1
