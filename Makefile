@@ -1,7 +1,7 @@
 UPSTREAM := $(shell grep FROM Dockerfile | cut -d: -f2)
-COMMIT := $(shell git rev-parse --short HEAD)
+TIMESTAMP := $(shell date +%s)
 IMAGE := discourse/logstash
-TAG := ${UPSTREAM}-${COMMIT}
+TAG := ${UPSTREAM}-${TIMESTAMP}
 CACHE := $(if $(FORCE),--no-cache,)
 
 .PHONY: push
