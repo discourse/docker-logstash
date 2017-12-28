@@ -1,6 +1,5 @@
 IMAGE := discourse/logstash
 TAG := $(shell grep FROM Dockerfile | cut -d: -f2)-$(shell date +%s)
-CACHE := $(if $(FORCE),--no-cache,)
 
 .PHONY: push
 push: build
@@ -8,5 +7,5 @@ push: build
 
 .PHONY: build
 build:
-	docker build ${CACHE} -t ${IMAGE}:${TAG} .
+	docker build --no-cache -t ${IMAGE}:${TAG} .
 
