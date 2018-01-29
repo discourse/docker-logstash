@@ -1,5 +1,5 @@
 IMAGE := discourse/logstash
-TAG := $(shell grep FROM Dockerfile | cut -d: -f2)-$(shell date +%s)
+TAG := $(shell grep FROM Dockerfile | cut -d: -f2)-$(shell date -u +%Y%m%d.%H%M%S)
 
 .PHONY: push
 push: build
